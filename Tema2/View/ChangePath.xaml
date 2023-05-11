@@ -1,0 +1,22 @@
+﻿<Window x:Class="Tema2.ChangePath"
+        x:Name="ChangePathWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tema2.ViewModel"
+        mc:Ignorable="d"
+        Title="Change Path" Height="400" Width="800">
+    <Window.DataContext>
+        <local:ChangePathVM/>
+    </Window.DataContext>
+    <Grid>
+        <Label Content="Change the path of your selected To Do List" FontSize="20" HorizontalAlignment="Center" Margin="0,63,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Make Root To Do List" FontSize="17" HorizontalAlignment="Center" Margin="0,152,0,0" VerticalAlignment="Top" Command="{Binding MakeRootTDLCommand}"/>
+        <RadioButton Content="Make Sub To Do List" FontSize="17" HorizontalAlignment="Left" Margin="311,179,0,0" VerticalAlignment="Top" Command="{Binding MakeSubTDLCommand}"/>
+        <ComboBox HorizontalAlignment="Center" Margin="0,217,0,0" VerticalAlignment="Top" Width="178" ItemsSource="{Binding Names}" SelectedValue="{Binding Name}"/>
+        <Button Content="Confirm" HorizontalAlignment="Left" Margin="311,264,0,0" VerticalAlignment="Top" Width="89" Command="{Binding ConfirmCommand}" CommandParameter="{Binding ElementName=ChangePathWindow}"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="405,264,0,0" VerticalAlignment="Top" Width="85" Command="{Binding CancelCommand}" CommandParameter="{Binding ElementName=ChangePathWindow}"/>
+
+    </Grid>
+</Window>
